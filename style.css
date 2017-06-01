@@ -1,0 +1,21 @@
+:root {
+  font-size: calc(.3em + 0.5vw);
+}
+
+body {
+  margin: 0;
+  background-color: rgb(137,234,234);
+}
+
+.frame {
+  background-color: rgb(80,180,930);
+  -webkit-mask: url(DVD_logo.svg) center / contain no-repeat;
+  mask: url(DVD_logo.svg) center / contain no-repeat;
+  width: 13.6rem;
+  height: 6.2rem;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+
+  /* 762 x 342.5 */
+}

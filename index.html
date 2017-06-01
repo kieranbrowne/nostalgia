@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fark</title>
+  <link rel="stylesheet" href="style.css" title="" type="" />
+</head>
+<body>
+
+  <div id="dvd" class="frame" style="top: 30px; left: 30px;"></div>
+
+  <script type="text/javascript" charset="utf-8">
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function changeColours() {
+  var el = document.querySelector('.frame');
+  el.style.backgroundColor = "rgb("+random(0,255)+","+random(0,255)+","+random(0,255)+")";
+  el = document.querySelector('body');
+  el.style.backgroundColor = "rgb("+random(0,255)+","+random(0,255)+","+random(0,255)+")";
+}
+
+var horiz = 1
+var vert = 1;
+
+function faaaaark() {
+
+
+  el = document.querySelector('.frame');
+  el.style.top = (parseInt(el.style.top) + vert).toString() + "px";
+  el.style.left = (parseInt(el.style.left) + horiz).toString() + "px";
+
+  var rect = el.getBoundingClientRect();
+
+  if(rect.top + document.body.scrollTop + el.offsetHeight >= window.innerHeight){ vert = -1; changeColours(); }
+  if(rect.top + document.body.scrollTop < 0) { vert = 1; changeColours(); }
+
+  if(rect.left + document.body.scrollLeft + el.offsetWidth >= window.innerWidth) { horiz = -1; changeColours(); }
+  if(rect.left + document.body.scrollLeft < 0) { horiz = 1; changeColours(); }
+
+  window.requestAnimationFrame(faaaaark);
+}
+
+window.requestAnimationFrame(faaaaark);
+  </script>
+  
+</body>
+</html>
